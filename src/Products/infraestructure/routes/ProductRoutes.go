@@ -11,8 +11,9 @@ func Routes(router *gin.Engine) {
 	createProduct := dependencies.GetCreateProductController().Execute
 	getAllProduct := dependencies.GetGetAllProductController().Execute
 	deleteProducts := dependencies.GetDeleteProductController().Execute
-	updateProducts := dependencies.GetUpdateProductController().Execute
+	updateProducts := dependencies.GetUpdateProductController().ShortPolling
 	getByIdProducts := dependencies.GetByIdProductController().Execute
+	
 
 	routes.POST("/", createProduct)
 	routes.GET("/", getAllProduct)

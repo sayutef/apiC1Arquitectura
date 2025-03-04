@@ -48,7 +48,8 @@ func GetDeleteProductController() *controllers.DeleteProductController {
 
 func GetUpdateProductController() *controllers.UpdateProductController {
 	caseUpdateProduct := application.NewUpdateProduct(&mySQL)
-	return controllers.NewUpdateProductController(caseUpdateProduct)
+	caseGetAllProduct := application.NewGetAllProduct(&mySQL) // Obtén el caso de uso GetAllProduct
+	return controllers.NewUpdateProductController(caseUpdateProduct, caseGetAllProduct) // Pasa ambos casos de uso al controlador
 }
 func GetByIdProductController() *controllers.GetByIdProductController {
 	caseGetByIdProduct := application.NewGetByIdProduct(&mySQL)
